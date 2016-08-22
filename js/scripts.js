@@ -5,7 +5,6 @@ function Task(taskName, location, details) {
   this.details = details;
 }
 
-
 // UI Logic
 $(document).ready(function() {
   $("form").submit(function(event) {
@@ -17,17 +16,14 @@ $(document).ready(function() {
 
     var newTask = new Task(inputtedTask, inputtedLocation, inputtedDetails);
 
-    $("ul#to-do-list").append("<li><span class='task'>" + newTask.taskName + "</li>");
-
+    $("ul#to-do-list").append("<div class='checkbox'> <label class='checklist'> <input type='checkbox'>" + newTask.taskName + "</label><span class='task' type='button' data-target='#myModal' data-toggle='modal'> (View details)</span></div>");
     $(".task").last().click(function() {
-      $("#show-details").show();
-      $("#show-details h3").text(newTask.taskName);
-
+      $("#myModal h4").text(newTask.taskName);
       $(".location").text(newTask.location);
       $(".details").text(newTask.details);
     });
 
-    $(".task").last().dblclick(function() {
+    $(".checklist").click(function() {
       $(this).toggleClass("task-done");
     });
     $("input#taskName").val("");
