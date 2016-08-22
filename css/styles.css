@@ -1,0 +1,17 @@
+#show-details {
+  display: none;
+}
+
+.task {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.task:hover {
+  text-decoration: underline;
+}
+
+.task-done {
+  color: grey;
+  text-decoration: line-through;
+}
